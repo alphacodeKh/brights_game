@@ -70,7 +70,7 @@
 ---
 
 ## 📄 Документація:
-📘 Повна PDF-документація: `SmartSchool_BrightBits_Documentation.pdf` *(розмістіть файл у репозиторії або Google Drive)*
+📘 Повна PDF-документація: `SmartSchool_BrightBits_Documentation.pdf`
 
 ---
 
