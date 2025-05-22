@@ -1,36 +1,37 @@
 import unittest
+from brights_game import BrightBitsGame
+import tkinter as tk
 
-class BrightBitsLogic:
-    """Допоміжний клас для тестування логіки перетворення"""
+class TestBrightBitsGame(unittest.TestCase):
+    def setUp(self):
+        self.root = tk.Tk()
+        self.root.withdraw()  # приховати вікно під час тестів
+        self.game = BrightBitsGame(self.root)
 
-    @staticmethod
-    def decimal_to_binary(n):
-        return bin(n)[2:].zfill(8)
+    def tearDown(self):
+        self.root.destroy()
 
-    @staticmethod
-    def binary_to_decimal(bstr):
-        return int(bstr, 2)
+    def test_initial_score(self):
+        self.assertEqual(self.game.score, 0)
 
+    def test_toggle_bulb(self):
+        self.game.bulb_values = [0] * 8
+        self.game.toggle_bulb(3)
+        self.assertEqual(self.game.bulb_values[3], 1)
+        self.game.toggle_bulb(3)
+        self.assertEqual(self.game.bulb_values[3], 0)
 
-class TestBrightBits(unittest.TestCase):
+    def test_generate_decimal_task(self):
+        self.game.game_mode = "decimal_to_binary"
+        self.game.generate_task()
+        self.assertGreaterEqual(self.game.current_decimal, 1)
+        self.assertTrue(self.game.current_binary.isdigit())
 
-    def test_decimal_to_binary(self):
-        self.assertEqual(BrightBitsLogic.decimal_to_binary(0), '00000000')
-        self.assertEqual(BrightBitsLogic.decimal_to_binary(5), '00000101')
-        self.assertEqual(BrightBitsLogic.decimal_to_binary(255), '11111111')
-        self.assertEqual(BrightBitsLogic.decimal_to_binary(13), '00001101')
-
-    def test_binary_to_decimal(self):
-        self.assertEqual(BrightBitsLogic.binary_to_decimal('00000000'), 0)
-        self.assertEqual(BrightBitsLogic.binary_to_decimal('00000101'), 5)
-        self.assertEqual(BrightBitsLogic.binary_to_decimal('11111111'), 255)
-        self.assertEqual(BrightBitsLogic.binary_to_decimal('00001101'), 13)
-
-    def test_bidirectional_conversion(self):
-        for num in range(256):
-            binary = BrightBitsLogic.decimal_to_binary(num)
-            self.assertEqual(BrightBitsLogic.binary_to_decimal(binary), num)
-
+    def test_generate_binary_task(self):
+        self.game.game_mode = "binary_to_decimal"
+        self.game.generate_task()
+        self.assertEqual(int(self.game.current_binary, 2), self.game.current_decimal)
 
 if __name__ == '__main__':
     unittest.main()
+
