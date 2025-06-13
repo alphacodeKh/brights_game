@@ -13,7 +13,7 @@ BrightBits is an educational game designed to teach school students the basics o
 - **CMS WordPress site:** Contains project documentation, news, leaderboard, and iframe game integration.
 
 ## 🧪 Technologies
-- Python 3.10 + Tkinter
+- Python 3.12 + Tkinter
 - HTML5, JavaScript
 - GitHub Pages
 - WordPress CMS + iframe embedding
