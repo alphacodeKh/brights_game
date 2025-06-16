@@ -80,5 +80,3 @@
 ```bash
 git clone https://github.com/teacher-kh/brightbits-game
 cd brightbits-game
-
- [Дивитися демонстраційне відео](https://youtu.be/dVUyvqhZp4w)
