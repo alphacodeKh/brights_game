@@ -18,8 +18,6 @@ BrightBits is an educational game designed to teach school students the basics o
 - GitHub Pages
 - WordPress CMS + iframe embedding
 
-# 💡 BrightBits: Interactive Binary Learning Game
-
 **BrightBits** — це навчальна гра для школярів, яка допомагає легко та весело опанувати **двоїчну систему числення**. Вона розроблена у двох форматах: **настільна гра на Python (Tkinter)** та **веб-версія на HTML+JavaScript**, інтегрована у навчальний сайт WordPress.
 
 ---
